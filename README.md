@@ -23,7 +23,7 @@ CodeBook.md
 The file CodeBook.md contain information about the operations perfomed to create the tidy data set as the requirement of the project, the variables in the data, and data produced.
 
 
-Running the Script run_analysis.R
+The Script run_analysis.R
 -----------------------------------------------
 
 The script was prepared using the R Software Version 3.1.0 (2014-04-10)
@@ -31,13 +31,13 @@ The script was tested successful on R Software Version 3.1.0 on Windows 7 Profes
 
 Assumptions:
 
-	The machine which is used to run the script has been installed with R software
+	The machine which is used to run the script has been installed with R software;
 
-	The person running the script run_analysis.R knows the basics of running R scripts
+	The person running the script run_analysis.R knows the basics of running R scripts;
 
-	The person who want to use this script knows how to download data given the url
+	The person who want to use this script knows how to download data when given the url;
 
-	The person using this script knows how to traverse from one folder to another
+	The person using this script knows how to traverse from one folder to another.
 
 Procedure:
 
@@ -59,14 +59,15 @@ Outputs of the script:
 
 		The script will create three dat sets:
 
-		The complete data set (samsungData) obtained by combining test and train data,  it has  10299 observations and 563 variables
-		The samsungDatastdm which is a subset containing measurements on mean and standard deviations only it has 10299 observations and 81 variables
-		The tidy_samsungData which contain the mean of measurements on mean and standard deviations per subject per activity, it has 180 observations and 81 				variables
+		The complete data set (samsungData) obtained by combining test and train data,  it has  10299 observations and 563 variables;
+		The samsungDatastdm which is a subset containing measurements on mean and standard deviations only it has 10299 observations and 81 variables;
+		The tidy_samsungData which contain the mean of measurements on mean and standard deviations per subject per activity, it has 180 observations and 81 variables.
 
 	In the working directory
 
 		The script will create three files:
 
-		tidy_features.txt, file containing the variable names of tidy_samsungData
-		samsungData.txt, the complete dataset obtained by combining test and train data. This dataset has 10299 observations and 563 variables
-		samsungDatastdm.txt, 
+		tidy_features.txt, file containing the variable names of tidy_samsungData, 81 names;
+		samsungData.txt, the complete dataset obtained by combining test and train data. This dataset has 10299 observations and 563 variables;
+		samsungDatastdm.txt, it has 10299 observations and 81 variables;
+		tidy_samsungData.txt, tidy data set file, it has 180 observations and 81 variables.

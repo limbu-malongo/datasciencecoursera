@@ -1,6 +1,6 @@
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-COURSERA DATA SCIENCE SPEACIALIZATION: GETTING AND CLEANING DATA PROJECT May 2014
+COURSERA DATA SCIENCE SPEACIALIZATION: GETTING AND CLEANING DATA PROJECT MAY 2014
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
