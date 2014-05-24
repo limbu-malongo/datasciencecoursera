@@ -28,6 +28,7 @@ The Script run_analysis.R
 
 The script was prepared using the R Software Version 3.1.0 (2014-04-10)
 The script was tested successful on R Software Version 3.1.0 on Windows 7 Professional Service Pack 1 and Windows 8 and Windows 8.1
+The package plyr which is not included in tha base packages is required by the script, if the machine is connected to the Internet the script will take care of it.
 
 Assumptions:
 
@@ -38,6 +39,8 @@ Assumptions:
 	The person who want to use this script knows how to download data when given the url;
 
 	The person using this script knows how to traverse from one folder to another.
+
+	The machine running the script will be connected  to the Internet. If you want to run this script off line make sure you install tha package plyr, by running the command install.packages("plyr")  befor running the script.
 
 Procedure:
 
