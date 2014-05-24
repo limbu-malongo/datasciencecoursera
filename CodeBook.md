@@ -1,146 +1,204 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+COURSERA DATA SCIENCE SPEACIALIZATION: GETTING AND CLEANING DATA PROJECT May 2014
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+This code book describe the data set tidy_samsungData which was produced as a project work for the Coursera course, Getting and Cleaning Data.
+
+
+The purpose of this project was to demonstrate the ability to collect, work with, and clean data. The goal being to prepare tidy data that can be used for later analysis.
+
+The full description of the origional data used for this project can be found:
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+
+and the origianl project data url:
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+The following operations were performed on the origional data to create a tidy data set
+
+	1. Merging the training and the test sets to create one data set
+	2. Extracting only the measurements on the mean and standard deviation for each measurement. 
+	3. To Use descriptive activity names to name the activities in the data set
+	4. To appropriately labels the data set with descriptive activity names. 
+	5. To create a second, independent tidy data set with the average of each variable for each activity and each subject. 
+
+1. Merging the training and the test sets to create one data set called samsungData
+-------------------------------------------------------------------------------------------------------------------
+Operations performed:
+
+Merging the different parts of the test data, i.e measuremets, activity perfomed and the subject who performed the activity. A data set (testData) with 2947 rows and 563 columns was produced.
+
+Merging the different parts of the train data, i.e measuremets, activity perfomed and the subject who performed the activity. A data set (trainData) with 7352 rows and 563 columns was produced.
+
+Merging the test and train data to create a single complete data set samsungData with  10299 rows and 563 columns.
+
+Creating a vector of variable names for measurements from features data. This contained 561 names for measurements taken, so to have a completed list of 563 variable names we added the subject and activity column names.
+
+The varible subject was made to be of factor type. The note was also taken to make sure the variable activity is going to be chaged to factor also.
+
+The output of this step was a data set called samsungData with 10299 rows and 563 columns with column names.
+
+
+2. Extracting only the measurements on the mean and standard deviation for each measurement to create a data set called samsungDatastdm
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Operations performed:
+
+Creating a subset of variable names by taking the variable names for mean and standard deviation (std) of measurements
+
+Creating a subset samsungDatastdm from samsungData which contain data on mean and standard deviation (std) of measurements
+
+A list of measurements judged to be dealing with mean and standard deviation (std):
+
+mean: Mean value
+std: Standard deviation
+meanFreq: Weighted average of the frequency components to obtain a mean frequency
+gravitymean
+tbodyaccmean
+tbodyaccjerkmean
+tbodygyromean
+tbodygyrojerkmean
+
+The data set produced in this step was samsungDatastdm with 10299 rows and 81 columns
+
+
+3. To Use descriptive activity names to name the activities in the data set
+----------------------------------------------------------------------------------------------------
+Operations perfomed:
+
+The activities in the data set were named with descriptive names as it follows:
+
+	1 ===> WALKING
+	2 ===> WALKING_UPSTAIRS
+	3 ===> WALKING_DOWNSTAIRS
+	4 ===> SITTING
+	5 ===> STANDING
+	6 ===> LAYING
+
 The 10299 activities were distributed as it follows:
 
-	WALKING			1722
+	WALKING				1722
 	WALKING_UPSTAIRS	1544
 	WALKING_DOWNSTAIRS	1406
-	SITTING			1777
-	STANDING		 1906
-	LAYING			1944
+	SITTING				1777
+	STANDING		 	1906
+	LAYING				1944
 
 
 4. To appropriately labels the data set with descriptive activity names.
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------
 Operations performed:
 
-Removing a
+	Removing brackets and dashes in variable names
 
-Feature Selection 
-=================
-Operations perormed:
+	Removing dots in variable names
+	
+	Changing the variable names to all lower cases
 
-
-The tidy_samsungData contain the mean of the following estimation variables:
-
+The output of this process was the samsungDatastdm with valid coulmn names
 
 
+5. To creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
-
-Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
-
-Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
-
-These signals were used to estimate variables of the feature vector for each pattern:  
-'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
-
-tbodyacc-xyz
-tgravityacc-xyz
-tbodyaccjerk-xyz
-tbodygyro-xyz
-tbodygyrojerk-xyz
-tbodyaccmag
-tgravityaccmag
-tbodyaccjerkmag
-tbodygyromag
-tbodygyrojerkmag
-fbodyacc-xyz
-fbodyaccjerk-xyz
-fbodygyro-xyz
-fbodyaccmag
-fbodyaccjerkmag
-fbodygyromag
-fbodygyrojerkmag
+The tidy data set was created by using average summarization of the 10299 observations of the samsangData by grouping them using activity and subject. The data set obtained from this process is tidy_samsungData with 180 observatiions and 81 variables.
 
 
-The set of variables that were estimated from these signals are: 
+Variables in the tidy_samsunData
+
+The tidy_samsungData contain the mean of the following estimations:
+
+mean: Mean value
+std: Standard deviation
+meanFreq: Weighted average of the frequency components to obtain a mean frequency
+gravitymean
+tbodyaccmean
+tbodyaccjerkmean
+tbodygyromean
+tbodygyrojerkmean
 
 
+Here is the complete list of 81 variables contained in the tidy_samsungData:
 
-
-Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle variable:
-
-
-
-Here is the complete list of 81 variables of each feature vector:
-
-subject
-activity
-tbodyaccmeanx
-tbodyaccmeany
-tbodyaccmeanz
-tbodyaccstdx
-tbodyaccstdy
-tbodyaccstdz
-tgravityaccmeanx
-tgravityaccmeany
-tgravityaccmeanz
-tgravityaccstdx
-tgravityaccstdy
-tgravityaccstdz
-tbodyaccjerkmeanx
-tbodyaccjerkmeany
-tbodyaccjerkmeanz
-tbodyaccjerkstdx
-tbodyaccjerkstdy
-tbodyaccjerkstdz
-tbodygyromeanx
-tbodygyromeany
-tbodygyromeanz
-tbodygyrostdx
-tbodygyrostdy
-tbodygyrostdz
-tbodygyrojerkmeanx
-tbodygyrojerkmeany
-tbodygyrojerkmeanz
-tbodygyrojerkstdx
-tbodygyrojerkstdy
-tbodygyrojerkstdz
-tbodyaccmagmean
-tbodyaccmagstd
-tgravityaccmagmean
-tgravityaccmagstd
-tbodyaccjerkmagmean
-tbodyaccjerkmagstd
-tbodygyromagmean
-tbodygyromagstd
-tbodygyrojerkmagmean
-tbodygyrojerkmagstd
-fbodyaccmeanx
-fbodyaccmeany
-fbodyaccmeanz
-fbodyaccstdx
-fbodyaccstdy
-fbodyaccstdz
-fbodyaccmeanfreqx
-fbodyaccmeanfreqy
-fbodyaccmeanfreqz
-fbodyaccjerkmeanx
-fbodyaccjerkmeany
-fbodyaccjerkmeanz
-fbodyaccjerkstdx
-fbodyaccjerkstdy
-fbodyaccjerkstdz
-fbodyaccjerkmeanfreqx
-fbodyaccjerkmeanfreqy
-fbodyaccjerkmeanfreqz
-fbodygyromeanx
-fbodygyromeany
-fbodygyromeanz
-fbodygyrostdx
-fbodygyrostdy
-fbodygyrostdz
-fbodygyromeanfreqx
-fbodygyromeanfreqy
-fbodygyromeanfreqz
-fbodyaccmagmean
-fbodyaccmagstd
-fbodyaccmagmeanfreq
-fbodybodyaccjerkmagmean
-fbodybodyaccjerkmagstd
-fbodybodyaccjerkmagmeanfreq
-fbodybodygyromagmean
-fbodybodygyromagstd
-fbodybodygyromagmeanfreq
-fbodybodygyrojerkmagmean
-fbodybodygyrojerkmagstd
-fbodybodygyrojerkmagmeanfreq
+	subject
+	activity
+	tbodyaccmeanx
+	tbodyaccmeany
+	tbodyaccmeanz
+	tbodyaccstdx
+	tbodyaccstdy
+	tbodyaccstdz
+	tgravityaccmeanx
+	tgravityaccmeany
+	tgravityaccmeanz
+	tgravityaccstdx
+	tgravityaccstdy
+	tgravityaccstdz
+	tbodyaccjerkmeanx
+	tbodyaccjerkmeany
+	tbodyaccjerkmeanz
+	tbodyaccjerkstdx
+	tbodyaccjerkstdy
+	tbodyaccjerkstdz
+	tbodygyromeanx
+	tbodygyromeany
+	tbodygyromeanz
+	tbodygyrostdx
+	tbodygyrostdy
+	tbodygyrostdz
+	tbodygyrojerkmeanx
+	tbodygyrojerkmeany
+	tbodygyrojerkmeanz
+	tbodygyrojerkstdx
+	tbodygyrojerkstdy
+	tbodygyrojerkstdz
+	tbodyaccmagmean
+	tbodyaccmagstd
+	tgravityaccmagmean
+	tgravityaccmagstd
+	tbodyaccjerkmagmean
+	tbodyaccjerkmagstd
+	tbodygyromagmean
+	tbodygyromagstd
+	tbodygyrojerkmagmean
+	tbodygyrojerkmagstd
+	fbodyaccmeanx
+	fbodyaccmeany
+	fbodyaccmeanz
+	fbodyaccstdx
+	fbodyaccstdy
+	fbodyaccstdz
+	fbodyaccmeanfreqx
+	fbodyaccmeanfreqy
+	fbodyaccmeanfreqz
+	fbodyaccjerkmeanx
+	fbodyaccjerkmeany
+	fbodyaccjerkmeanz
+	fbodyaccjerkstdx
+	fbodyaccjerkstdy
+	fbodyaccjerkstdz
+	fbodyaccjerkmeanfreqx
+	fbodyaccjerkmeanfreqy
+	fbodyaccjerkmeanfreqz
+	fbodygyromeanx
+	fbodygyromeany
+	fbodygyromeanz
+	fbodygyrostdx
+	fbodygyrostdy
+	fbodygyrostdz
+	fbodygyromeanfreqx
+	fbodygyromeanfreqy
+	fbodygyromeanfreqz
+	fbodyaccmagmean
+	fbodyaccmagstd
+	fbodyaccmagmeanfreq
+	fbodybodyaccjerkmagmean
+	fbodybodyaccjerkmagstd
+	fbodybodyaccjerkmagmeanfreq
+	fbodybodygyromagmean
+	fbodybodygyromagstd
+	fbodybodygyromagmeanfreq
+	fbodybodygyrojerkmagmean
+	fbodybodygyrojerkmagstd
+	fbodybodygyrojerkmagmeanfreq

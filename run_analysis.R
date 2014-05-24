@@ -175,10 +175,18 @@ if(require("plyr")){
 #colwise is a function that operates on a vector into a function that operates column-wise on a data.frame
 tidy_samsungData = ddply(samsungDatastdm, .(subject, activity), colwise(mean))
 
+#The following codes will create files in the working directory
 
-#Creating a text file which contain the variable names to be used on CodeBook
+#Creating a text file which contain the variable names to be used on CodeBook.
 write.table(names(tidy_samsungData), file = "tidy_features.txt", row.names = FALSE, col.names = FALSE)
+
 
 #Creating a text file of tidy data set to uploaded for grading
 write.table(tidy_samsungData, file = "tidy_samsugnData.txt", row.names = FALSE)
 
+#Miscellaneous
+#Creating a text file of the complete data set prior to subsetting
+write.table(samsungData, file = "samsugnData.txt", row.names = FALSE)
+
+#Creating a text file of the samsungDatastdm set 
+write.table(samsungDatastdm, file = "samsugnDatastdm.txt", row.names = FALSE)
